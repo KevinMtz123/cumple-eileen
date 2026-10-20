@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz cumpleaños, Eileen</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/script.js" defer></script>
+</head>
+<body class="bloqueado">
+
+<!-- CANDADO -->
+<div id="candado" class="puntos">
+  <form class="tarjeta" id="formClave">
+<div id="catarinaCandado" style="display:flex;justify-content:center;margin-bottom:10px"></div>
+    <h2>Hola, preciosa</h2>
+    <p>Para entrar, dime: ¿cómo te digo de cariño?</p>
+    <input id="clave" type="text" placeholder="Escribe aquí..." autocomplete="off">
+    <p id="error"></p>
+    <button class="btn" type="submit">Entrar 🐞</button>
+  </form>
+</div>
+
+<!-- PORTADA -->
+<section id="inicio" class="puntos">
+  <h1>Feliz cumpleaños,<br>Eileen</h1>
+  <div class="edad">21</div>
+  <p id="cuenta"></p>
+  <div class="flecha">↓</div>
+</section>
+
+<!-- RAZONES -->
+<section id="razones" class="revelar">
+  <h2>21 razones por las que te quiero</h2>
+  <p class="sub">Una por cada año tuyo. Toca cada catarina 🐞</p>
+  <div id="razonTexto">Elige una catarina...</div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<!-- FOTOS -->
+<section id="galeria" class="revelar">
+  <h2>Nuestros momentos</h2>
+  <div class="fotos" id="fotos"></div>
+</section>
+
+<!-- CARTA -->
+<section id="carta" class="revelar">
+  <h2>Un libro solo para ti</h2>
+  <p class="sub">Sé que te encanta leer, así que te escribí uno. Tócalo para abrirlo.</p>
+  <div class="libro" id="libro">
+    <div class="portada puntos">
+      <h3>Para Tamo</h3>
+      <small>Toca para abrir</small>
+    </div>
+    <div class="pagina">
+      <h3>Tamo:</h3>
+      <p>Aquí va tu carta. Desde que llegaste han sido momentos maravillosos...</p>
+      <p>Cada vez  que veo tus ojitos color cafe, recuerdo cada momento que hemos pasado juntos,
+        nunca me cansaré de verte a los ojos.
+        Espero siempre poder estar para tí y que tu tambien estés ahí.</p>
+      <p>Feliz cumpleaños número 21.</p>
+      <p class="firma">Con todo mi amor, Tamo</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section id="final" class="puntos">
+  <div class="caja revelar">
+    <svg viewBox="0 0 200 175" width="170" aria-hidden="true">
+      <path d="M38 75 L48 14 L88 50 Z" fill="#fff" stroke="#1b1b1b" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M162 75 L152 14 L112 50 Z" fill="#fff" stroke="#1b1b1b" stroke-width="5" stroke-linejoin="round"/>
+      <ellipse cx="100" cy="102" rx="76" ry="62" fill="#fff" stroke="#1b1b1b" stroke-width="5"/>
+      <path d="M62 98 Q74 86 86 98 M114 98 Q126 86 138 98" fill="none" stroke="#1b1b1b" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="58" cy="118" r="9" fill="#ffb3bd"/><circle cx="142" cy="118" r="9" fill="#ffb3bd"/>
+      <path d="M94 112 L106 112 L100 119 Z" fill="#e0242f"/>
+      <path d="M100 119 Q93 129 86 123 M100 119 Q107 129 114 123" fill="none" stroke="#1b1b1b" stroke-width="4" stroke-linecap="round"/>
+      <path d="M20 110 L52 114 M22 126 L52 122 M180 110 L148 114 M178 126 L148 122" stroke="#1b1b1b" stroke-width="3" stroke-linecap="round"/>
+      <ellipse cx="100" cy="38" rx="16" ry="13" fill="#e0242f" stroke="#1b1b1b" stroke-width="3"/>
+      <line x1="100" y1="26" x2="100" y2="51" stroke="#1b1b1b" stroke-width="2"/>
+      <circle cx="93" cy="35" r="3" fill="#1b1b1b"/><circle cx="107" cy="35" r="3" fill="#1b1b1b"/>
+      <circle cx="94" cy="44" r="2.5" fill="#1b1b1b"/><circle cx="106" cy="44" r="2.5" fill="#1b1b1b"/>
+    </svg>
+    <h2>Te amo, Tamo</h2>
+    <p>Gracias por existir. Que este año te regrese todo lo bonito que das.</p>
+    <button class="btn" id="btnDeseo">Pide un deseo 🐞</button>
+  </div>
+</section>
+
+
+</body>
+</html>

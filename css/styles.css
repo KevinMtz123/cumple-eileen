@@ -1,0 +1,151 @@
+
+:root{--rojo:#e0242f;--rojo-osc:#a5141d;--negro:#1b1b1b;--crema:#fff6ef;--rosa:#ffd6dc}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Quicksand',sans-serif;background:var(--crema);color:var(--negro);overflow-x:hidden}
+body.bloqueado{overflow:hidden}
+h1,h2,h3{font-family:'Dancing Script',cursive}
+h2{font-size:2.6rem;color:var(--rojo);margin-bottom:8px}
+section{min-height:100vh;padding:60px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.puntos{background-color:var(--rojo);background-image:radial-gradient(var(--negro) 14%,transparent 15%),radial-gradient(var(--negro) 14%,transparent 15%);background-size:60px 60px;background-position:0 0,30px 30px}
+.sub{opacity:.75;max-width:420px}
+
+/* Candado */
+#candado{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:20px;transition:opacity .8s}
+#candado.oculto{opacity:0;pointer-events:none}
+.tarjeta{background:#fff;border-radius:24px;padding:32px 24px;max-width:340px;width:100%;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.tarjeta h2{font-size:2.2rem}
+.tarjeta input{width:100%;padding:12px;border:2px solid var(--rojo);border-radius:12px;font-size:1rem;margin:16px 0 8px;text-align:center;font-family:inherit;outline:none}
+#error{color:var(--rojo);font-size:.9rem;min-height:1.3em;margin-bottom:8px}
+.sacudir{animation:sacudir .4s}
+@keyframes sacudir{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.btn{background:var(--rojo);color:#fff;border:none;padding:12px 28px;border-radius:999px;font-size:1rem;font-weight:600;cursor:pointer;font-family:inherit;box-shadow:0 4px 0 var(--rojo-osc)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--rojo-osc)}
+
+/* Catarina */
+.catarina{
+  --t:44px;
+  position:relative;
+  width:var(--t);
+  height:calc(var(--t) * 1.05);
+  font-size:var(--t);
+  filter:drop-shadow(0 .08em .06em rgba(0,0,0,.25));
+}
+.catarina.volando{
+  position:fixed;
+  z-index:40;
+  pointer-events:none;
+  animation:volar linear forwards;
+}
+@keyframes volar{
+  to{transform:translateY(-120vh) rotate(360deg)}
+}
+/* cuerpo oscuro que se asoma entre las alas */
+.catarina::before{
+  content:'';position:absolute;bottom:.02em;left:.05em;
+  width:.9em;height:.78em;background:var(--negro);border-radius:50%;
+}
+.catarina .cabeza{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:.5em;height:.36em;background:var(--negro);
+  border-radius:50% 50% 45% 45%;z-index:1;
+}
+.catarina .ojo{
+  position:absolute;top:.09em;width:.12em;height:.12em;
+  background:#fff;border-radius:50%;
+}
+.catarina .ojo:first-child{left:.07em}
+.catarina .ojo:last-child{right:.07em}
+.catarina .ojo::after{
+  content:'';position:absolute;bottom:.015em;right:.015em;
+  width:.055em;height:.055em;background:var(--negro);border-radius:50%;
+}
+.catarina .antena{
+  position:absolute;top:-.14em;width:.03em;height:.22em;
+  background:var(--negro);border-radius:.02em;transform-origin:bottom;
+}
+.catarina .antena::after{
+  content:'';position:absolute;top:-.04em;left:50%;transform:translateX(-50%);
+  width:.08em;height:.08em;background:var(--negro);border-radius:50%;
+}
+.catarina .antena.izq{left:.38em;transform:rotate(-25deg)}
+.catarina .antena.der{right:.38em;transform:rotate(25deg)}
+
+.catarina .ala{
+  position:absolute;bottom:0;width:.49em;height:.82em;z-index:2;
+}
+.catarina .ala.izq{
+  left:0;
+  transform-origin:top right;
+  border-radius:100% 0 0 100% / 50% 0 0 50%;
+  background:
+    radial-gradient(circle at 100% 20%, var(--negro) .09em, transparent .1em),
+    radial-gradient(circle at 45% 38%, var(--negro) .085em, transparent .095em),
+    radial-gradient(circle at 60% 68%, var(--negro) .1em, transparent .11em),
+    radial-gradient(circle at 28% 84%, var(--negro) .065em, transparent .075em),
+    radial-gradient(circle at 70% 30%, #ff6b6b, var(--rojo) 50%, #a5141d);
+}
+.catarina .ala.der{
+  right:0;
+  transform-origin:top left;
+  border-radius:0 100% 100% 0 / 0 50% 50% 0;
+  background:
+    radial-gradient(circle at 0% 20%, var(--negro) .09em, transparent .1em),
+    radial-gradient(circle at 55% 38%, var(--negro) .085em, transparent .095em),
+    radial-gradient(circle at 40% 68%, var(--negro) .1em, transparent .11em),
+    radial-gradient(circle at 72% 84%, var(--negro) .065em, transparent .075em),
+    radial-gradient(circle at 30% 30%, #ff5a5f, var(--rojo) 50%, #a5141d);
+}
+.catarina .brillo{
+  position:absolute;top:.2em;left:.1em;width:.15em;height:.08em;
+  background:rgba(255,255,255,.65);border-radius:50%;transform:rotate(-35deg);
+}
+
+/* aleteo al volar y al pasar el mouse */
+.volando .ala.izq, .boton-cat:hover .ala.izq{animation:aleteoIzq .18s infinite alternate}
+.volando .ala.der, .boton-cat:hover .ala.der{animation:aleteoDer .18s infinite alternate}
+@keyframes aleteoIzq{to{transform:rotate(-12deg)}}
+@keyframes aleteoDer{to{transform:rotate(12deg)}}
+/* Portada */
+#inicio{color:#fff}
+#inicio h1{font-size:clamp(3rem,13vw,5.5rem);line-height:1.1;text-shadow:0 4px 0 var(--negro)}
+.edad{font-size:5rem;font-weight:600;background:#fff;color:var(--rojo);width:150px;height:150px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:28px auto;box-shadow:0 0 0 8px var(--negro)}
+#cuenta{background:rgba(0,0,0,.45);padding:10px 20px;border-radius:999px;font-weight:600}
+.flecha{margin-top:40px;font-size:2rem;animation:rebote 1.5s infinite}
+@keyframes rebote{50%{transform:translateY(10px)}}
+
+/* Razones */
+#razonTexto{background:#fff;border-radius:20px;padding:24px;max-width:480px;width:100%;min-height:120px;margin:24px 0;display:flex;align-items:center;justify-content:center;font-size:1.15rem;line-height:1.5;box-shadow:0 6px 20px rgba(0,0,0,.08);border:3px dashed var(--rojo)}
+#razonTexto strong{color:var(--rojo);font-size:1.4rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:12px;max-width:560px;width:100%}
+.boton-cat{background:#fff;border:none;border-radius:16px;padding:10px 4px;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.08);transition:.3s;font-family:inherit;font-weight:600;color:var(--rojo)}
+.boton-cat:active{transform:scale(.9)}
+.boton-cat.vista{opacity:.4}
+
+/* Fotos */
+.fotos{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;max-width:900px;margin-top:24px}
+.polaroid{background:#fff;padding:10px 10px 14px;width:220px;box-shadow:0 8px 24px rgba(0,0,0,.15);transform:rotate(var(--r));transition:transform .3s}
+.polaroid:hover{transform:rotate(0) scale(1.04)}
+.polaroid img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--rosa);display:block}
+.polaroid p{font-family:'Dancing Script',cursive;font-size:1.35rem;margin-top:8px}
+
+/* Libro */
+.libro{width:min(320px,85vw);height:440px;position:relative;perspective:1400px;cursor:pointer;margin-top:24px}
+.portada,.pagina{position:absolute;inset:0;border-radius:4px 16px 16px 4px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.portada{z-index:2;transform-origin:left;transition:transform 1.3s ease;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#fff;border-left:10px solid var(--negro)}
+.portada h3{font-size:2.4rem;text-shadow:0 3px 0 var(--negro)}
+.portada small{background:rgba(0,0,0,.5);padding:6px 14px;border-radius:999px}
+.libro.abierto .portada{transform:rotateY(-165deg);pointer-events:none}
+.pagina{background:#fffdf8;padding:28px 22px;overflow-y:auto;text-align:left;line-height:1.7;border-left:10px solid #e8ddd0}
+.pagina h3{color:var(--rojo);font-size:1.9rem;margin-bottom:10px}
+.pagina p{margin-bottom:12px}
+.firma{text-align:right;font-family:'Dancing Script',cursive;font-size:1.5rem;color:var(--rojo)}
+
+/* Final */
+#final{color:#fff}
+#final .caja{background:rgba(0,0,0,.55);border-radius:28px;padding:32px 24px;max-width:400px}
+#final h2{color:#fff;font-size:3rem}
+#final .btn{background:#fff;color:var(--rojo);box-shadow:0 4px 0 var(--negro);margin-top:18px}
+
+/* Animación al hacer scroll */
+.revelar{opacity:0;transform:translateY(40px);transition:1s}
+.revelar.visible{opacity:1;transform:none}
